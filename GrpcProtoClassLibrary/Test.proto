@@ -1,0 +1,22 @@
+﻿syntax="proto3";
+
+option csharp_namespace="GrpcProtoClassLibrary";
+
+package TestProto;
+
+service Test{
+	rpc NormalSayHello(HelloRequest) returns(HelloResponse);
+	rpc ClientStreamSayHello(stream HelloRequest) returns(HelloResponse);
+	rpc ServerStreamSayHello(HelloRequest) returns(stream HelloResponse);
+	rpc BothStreamSayHello(stream HelloRequest) returns(stream HelloResponse);
+}
+
+message HelloRequest{
+	string name=1;
+}
+
+message HelloResponse{
+	string message=1;
+}
+
+
